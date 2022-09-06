@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <button id ="click">click</button>
+  <script>
+  let button = document.getElementById("click");
+  button.style.width="50px";
+  button.style.height="20px";
+
+
+  let root = document.getElementById("root");
+  let size = 0;
+  root.style.width= size +"px";
+  root.style.height= `${size}px`;
+  root.style.backgroundColor="salmon";
+  let rotate1 = 0;
+  root.style.transform=`rotate(${rotate1}deg)`;
+
+    button.addEventListener('click',function(){
+      let time = setInterval(function(){
+        size = size + 1;
+        root.style.width= "100px";
+        root.style.height= `${size}px`;
+        if(size === 100){
+          clearInterval(time);
+          let rotate1 = setInterval(function(){
+            rotate1++;
+            root.style.transform=`rotate(${rotate1}deg)`;
+            if(rotate1 === 360){
+              clearInterval(rotate);
+            }
+          },10);
+        } 
+      },10);
+    });
+    </script>
+</body>
+</html>
